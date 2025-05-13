@@ -18,7 +18,7 @@ function App() {
   // variabile di stato
   const [genre, setGenre] = useState("");
 
-  // ligica della funzione di filtraggio
+  // logica della funzione di filtraggio
   useEffect(() => {
     if (genre !== '') {
       const selectedMovies = movies.filter(movie => movie.genre === genre);
