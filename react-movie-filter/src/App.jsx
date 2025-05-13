@@ -12,6 +12,9 @@ const movies = [
 
 function App() {
 
+  // variabile di stato per filtraggio
+  const [filteredMovies, setFilteredMovies] = useState(movies);
+
   // variabile di stato
   const [genre, setGenre] = useState("");
 
