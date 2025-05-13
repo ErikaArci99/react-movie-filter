@@ -18,16 +18,23 @@ function App() {
         <h1 className='mt-4'>Lista Film</h1>
         <div className="row mt-4">
           <div className="col-12">
-            <div className="col-12">
-              <ul className='list-group'>
-                {movies.map((movie, index) => {
-                  return (<li key={index} className="list-group-item">
-                    {movie.title} <em>{movie.genre}</em>
-                  </li>
-                  );
-                })}
-              </ul>
-            </div>
+            {/* selezione del genere */}
+            <select className="form-select text-center">
+              <option value="">Tutti i generi</option>
+              <option value="Fantascienza">Fantascienza</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Romantico">Romantico</option>
+              <option value="Azione">Azione</option>
+            </select>
+            {/* ciclo array */}
+            <ul className='list-group'>
+              {movies.map((movie, index) => {
+                return (<li key={index} className="list-group-item">
+                  {movie.title} <em>{movie.genre}</em>
+                </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>
