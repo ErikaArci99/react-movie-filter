@@ -12,6 +12,9 @@ const movies = [
 
 function App() {
 
+  // variabile di stato
+  const [genre, setGenre] = useState("");
+
   return (
     <>
       <div className="container text-center">
@@ -19,7 +22,7 @@ function App() {
         <div className="row mt-4">
           <div className="col-12">
             {/* selezione del genere */}
-            <select className="form-select text-center">
+            <select className="form-select text-center" value={genre} onChange={(e) => setGenre(e.target.value)}>
               <option value="">Tutti i generi</option>
               <option value="Fantascienza">Fantascienza</option>
               <option value="Thriller">Thriller</option>
