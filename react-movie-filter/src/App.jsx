@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const movies = [
@@ -18,6 +18,18 @@ function App() {
   // variabile di stato
   const [genre, setGenre] = useState("");
 
+  // ligica della funzione di filtraggio
+  useEffect(() => {
+    if (genre !== '') {
+      const selectedMovies = movies.filter(movie => movie.genre === genre);
+      setFilteredMovies(selectedMovies);
+    }
+    else {
+      // non filtro l array
+      setFilteredMovies(movies);
+    }
+  }, [genre]);
+
   return (
     <>
       <div className="container text-center">
@@ -34,7 +46,7 @@ function App() {
             </select>
             {/* ciclo array */}
             <ul className='list-group'>
-              {movies.map((movie, index) => {
+              {filteredMovies.map((movie, index) => {
                 return (<li key={index} className="list-group-item">
                   {movie.title} <em>{movie.genre}</em>
                 </li>
